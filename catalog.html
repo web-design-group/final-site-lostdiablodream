@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Каталог — Трансформаторы и Лампы</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .header-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      gap: 15px;
+      justify-content: center;
+    }
+    .featured-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .product-actions {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 12px;
+      margin-top: 16px;
+      justify-content: flex-start;
+    }
+    .form-actions {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 12px;
+      justify-content: end;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .filters {
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 8px 8px 0;
+      border-radius: 6px;
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      color: #FFD700;
+      font-weight: 600;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 160ms ease;
+      text-decoration: none;
+    }
+    .filter-btn:hover {
+      background: rgba(255, 215, 0, 0.1);
+      border-color: rgba(255, 215, 0, 0.3);
+      transform: translateY(-2px);
+      color: #FFD700;
+    }
+    .filter-btn.active {
+      background: #880E4F;
+      border-color: #880E4F;
+      color: #ECECEC;
+    }
+    @media (min-width: 768px) {
+      .header-grid {
+        grid-template-columns: auto 1fr auto;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr auto auto;
+      }
+      .featured-products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+    @media (max-width: 767px) {
+      .header-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+      }
+      .nav-grid {
+        grid-template-columns: repeat(3, auto);
+        gap: 10px;
+      }
+      .featured-products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+      .product-actions {
+        grid-template-columns: 1fr;
+      }
+      .form-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .nav-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .featured-products-grid {
+        grid-template-columns: 280px;
+        grid-auto-flow: column;
+        grid-auto-columns: 280px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .featured-products-grid > * {
+        scroll-snap-align: start;
+      }
+    }
+    .product-actions .btn-ghost-custom {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      margin-right: 12px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 6px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ECECEC;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+      transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+    }
+    .filter-btn:hover {
+      color: #FFD700;
+      border-color: rgba(255, 215, 0, 0.6);
+      background: rgba(255, 215, 0, 0.04);
+    }
+    .filter-btn.active {
+      color: #FFD700;
+      border-color: #FFD700;
+      text-decoration-thickness: 2px;
+    }
+    .single-card-section .category-grid {
+      display: flex !important;
+      justify-content: flex-start !important;
+    }
+    .single-card-section .product-card {
+      width: 425px !important;
+      flex-shrink: 0 !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading">
+    <div class="text-center">
+      <div class="brand-logo d-inline-flex">T&L</div>
+      <div class="text-alto mt-3" style="font-size: 20px;">Загрузка...</div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <header class="header sticky-top">
+      <div class="container-main d-flex justify-content-between align-items-center py-3">
+        <a href="index.html" class="brand-link d-flex align-items-center gap-3 text-decoration-none">
+          <div class="brand-logo">T&L</div>
+          <div>
+            <div class="fw-bold text-light">Трансформаторы и Лампы</div>
+            <div class="header-subtitle">
+              <span class="desktop-subtitle">Каталог</span>
+            </div>
+          </div>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          ☰ Меню
+        </button>
+        <nav class="d-none d-lg-flex gap-3 desktop-nav">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="catalog.html" class="nav-link">Каталог</a>
+          <a href="projects.html" class="nav-link">Проекты</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </nav>
+        <a href="contacts.html" class="btn-custom btn-primary-custom desktop-cta">
+          Связаться
+        </a>
+        <nav class="mobile-nav" id="mobileNav" style="display: none;">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="catalog.html" class="nav-link">Каталог</a>
+          <a href="projects.html" class="nav-link">Проекты</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="py-5">
+        <div class="container-main">
+          <h1 class="page-title">Каталог оборудования</h1>
+          <div class="filters">
+            <div class="small mb-3" style="color: #BDBDBD; font-size: 20px;">Фильтр по категории:
+              <a class="filter-btn" href="#" data-filter="lamps">Ламповое</a>
+              <a class="filter-btn" href="#" data-filter="digital">Транзисторное/Цифровое</a>
+              <a class="filter-btn" href="#" data-filter="tesla">Трансформаторы Тесла</a>
+            </div>
+          </div>
+          <section id="lamps" class="mb-5" data-category-section="lamps">
+            <h2 class="section-title">Ламповое оборудование</h2>
+            <div class="category-grid">
+              <div class="product-card" data-category="lamps">
+                <img src="images/tube_mic.jpg" alt="Ламповый микрофон">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Ламповый микрофон LM-1</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Капсюль: 1", теплый характер, ручная сборка</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=lm1">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Ламповый микрофон LM-1">Купить</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card" data-category="lamps">
+                <img src="images/vari-mu.jpg" alt="Компрессор">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Vari-Mu компрессор VM-Classic</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Оптическая сглаженность, ламповый характер</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=vmc">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Vari-Mu компрессор VM-Classic">Купить</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card" data-category="lamps">
+                <img src="images/eq.jpg" alt="Эквалайзер">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Параметрический эквалайзер PEQ-2</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Точная коррекция частот с ламповым насыщением</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=peq2">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Параметрический эквалайзер PEQ-2">Купить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="trans" class="mb-5" data-category-section="digital">
+            <h2 class="section-title">Транзисторное/Цифровое оборудование</h2>
+            <div class="category-grid">
+              <div class="product-card" data-category="digital">
+                <img src="images/mon.jpg" alt="Студийный монитор">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Активный студийный монитор SM-5</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Точный контроль, линейная АЧХ</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=sm5">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Активный студийный монитор SM-5">Купить</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card" data-category="digital">
+                <img src="images/synt.jpg" alt="Синтезатор">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Аналоговый синтезатор ASG-8</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Многообразие волновых форм</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=asg8">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Аналоговый синтезатор ASG-8">Купить</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card" data-category="digital">
+                <img src="images/cabsim.jpg" alt="Эмулятор кабинета">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">Эмулятор кабинета CabSim Pro</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Реактивная нагрузка + моделирование микрофонов</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=cabsim">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="Эмулятор кабинета CabSim Pro">Купить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="tesla" class="mb-5 single-card-section" data-category-section="tesla">
+            <h2 class="section-title">Трансформаторы Тесла</h2>
+            <div class="category-grid">
+              <div class="product-card" data-category="tesla">
+                <img src="images/drsstc.jpg" alt="Трансформатор Тесла">
+                <div style="padding: 16px 0;">
+                  <h3 style="margin: 0 0 8px; font-size: 20px; color: #FFD700;">DRSSTC MIDI Coil DMC-1</h3>
+                  <div class="small text-secondary mb-3" style="font-size: 20px;">Высокопроизводительная DRSSTC с MIDI интерфейсом</div>
+                  <div class="product-actions">
+                    <a class="btn-custom btn-ghost-custom" href="product.html?product=dmc1">Подробнее</a>
+                    <button class="btn-custom btn-primary-custom" data-product="DRSSTC MIDI Coil DMC-1">Купить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container-main">
+        <div class="footer-grid" style="grid-template-columns: 1fr auto;">
+          <div>
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; margin-bottom: 20px;">
+              <div class="logo">T&L</div>
+              <div>
+                <div class="fw-bold fs-5 text-light" style="font-size: 20px;">Трансформаторы и Лампы</div>
+                <div class="text-secondary" style="font-size: 20px;">Каталог</div>
+              </div>
+            </div>
+            <div class="text-secondary" style="font-size: 20px;">&#169; 2025</div>
+          </div>
+          <div>
+            <div class="fw-bold mb-2 text-secondary" style="font-size: 20px;">Контакты</div>
+            <div class="text-secondary" style="font-size: 20px;">email: info@translamps.example</div>
+            <div class="text-secondary" style="font-size: 20px;">тел: +7 (900) 000-00-00</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="buyModal" class="modal-custom" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; align-items: center; justify-content: center; background: rgba(0,0,0,0.7);">
+    <div style="background: #0c0c0c; border-radius: 12px; border: 1px solid rgba(255,215,0,0.08); max-width: 500px; width: 90%; margin: 20px; position: relative;">
+      <div style="padding: 20px 20px 10px; display: grid; grid-template-columns: 1fr auto; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <h5 class="modal-title-custom" style="font-size: 24px; color: #FFD700;">Оформление заказа</h5>
+        <button type="button" class="close-btn" onclick="closeModal()" aria-label="Close">&times;</button>
+      </div>
+      <div style="padding: 20px;">
+        <form class="form-custom" id="buy-form">
+          <div style="margin-bottom: 1rem;">
+            <label for="product" class="form-label" style="font-size: 20px;">Продукт</label>
+            <input type="text" class="form-control" id="product" name="product" readonly>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label for="name" class="form-label" style="font-size: 20px;">Ваше имя</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя" required>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label for="email" class="form-label" style="font-size: 20px;">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Введите email" required>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label for="message" class="form-label" style="font-size: 20px;">Комментарий</label>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-custom btn-primary-custom">Отправить</button>
+            <button type="button" class="btn-custom btn-ghost-custom" onclick="closeModal()">Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    function openModal(productName) {
+      document.getElementById('product').value = productName;
+      document.getElementById('buyModal').style.display = 'grid';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('buyModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.querySelectorAll('[data-product]').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productName = this.getAttribute('data-product');
+        openModal(productName);
+      });
+    });
+    document.getElementById('buyModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var userActions = [];
+      $(document).on('click', function(e) {
+        var target = $(e.target);
+        var data = {
+          timestamp: new Date().toISOString(),
+          tag: target.prop('tagName'),
+          className: target.attr('class') || '',
+          id: target.attr('id') || '',
+          href: target.attr('href') || ''
+        };
+        userActions.push(data);
+        if (userActions.length > 100) {
+          userActions.shift();
+        }
+        localStorage.setItem('tl_analytics', JSON.stringify(userActions));
+      });
+      var startTime = new Date();
+      $(window).on('beforeunload', function() {
+        var timeSpent = new Date() - startTime;
+        console.log('Время на странице: ' + Math.round(timeSpent/1000) + ' сек');
+      });
+    });
+  </script>
+</body>
+</html>

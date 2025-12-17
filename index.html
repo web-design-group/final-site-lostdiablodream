@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Трансформаторы и Лампы — Главная</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 160ms ease;
+    }
+    .brand:hover {
+      transform: scale(1.02);
+    }
+    .brand > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 6px;
+    }
+    .brand > div > div:first-child {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      color: #ECECEC;
+    }
+    .small {
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+    }
+    .btn {
+      box-sizing: border-box;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 10.5px 17px 10.8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      white-space: nowrap;
+      width: auto;
+    }
+    .btn.cta, .btn.primary {
+      background: #880E4F;
+      color: #ECECEC;
+      box-shadow: 0 4px 12px rgba(136,14,79,0.2);
+    }
+    .btn.cta:hover, .btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(136,14,79,0.3);
+    }
+    .btn.ghost {
+      background: transparent;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      filter: drop-shadow(0px 4px 12px rgba(136, 14, 79, 0.2));
+    }
+    .btn.ghost:hover {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,215,0,0.2);
+      transform: translateY(-2px);
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 13px;
+      width: 100%;
+    }
+    .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 80px 0;
+      gap: 20px;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .hero-grid {
+      display: contents;
+    }
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 15.3px;
+      width: 100%;
+      max-width: 900px;
+    }
+    .hero h1 {
+      width: 100%;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 54px;
+      letter-spacing: 0.6px;
+      color: #FFD700;
+      margin: 0;
+    }
+    .lead {
+      width: 100%;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      color: #D7D7D7;
+      margin: 0;
+    }
+    .categories {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      padding: 8.7px 0 0;
+      gap: 20px;
+      width: 100%;
+    }
+    .category {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 17px 19px;
+      width: 210px;
+      min-width: 160px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid rgba(255, 215, 0, 0.05);
+      border-radius: 8px;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border-color: rgba(255,215,0,0.15);
+    }
+    .category strong {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      text-align: center;
+      color: #ECECEC;
+    }
+    .category .small {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      text-align: center;
+      color: #BDBDBD;
+      padding: 0 0 0.84px;
+    }
+    .hero-grid > div:first-child > div:last-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 8.7px 0 0;
+      gap: 20px;
+      width: 100%;
+    }
+    .aside {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 21px;
+      gap: 16px;
+      width: 440px;
+      background: linear-gradient(180deg, #0F0F0F 0%, #161616 100%);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .aside h3 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 38px;
+      color: #FFD700;
+      margin: 0;
+    }
+    .aside > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 12px;
+      width: 100%;
+    }
+    .card {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+      width: 100%;
+      background: #1E1E1E;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+      border-color: rgba(255,215,0,0.1);
+    }
+    .card > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+    .card img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 200ms ease;
+    }
+    .card:hover img {
+      transform: scale(1.03);
+    }
+    .card strong {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      color: #ECECEC;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .card .small {
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+      display: block;
+    }
+    .section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 50px 0;
+      gap: 28px;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 46px;
+      color: #FFD700;
+      margin: 0;
+      width: 100%;
+    }
+    .advantages {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+    }
+    .adv {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 25px 32px;
+      gap: 10.52px;
+      width: 440px;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.05) 0%, rgba(136, 14, 79, 0.03) 100%);
+      border: 1px solid rgba(255, 215, 0, 0.08);
+      border-radius: 10px;
+      transition: transform 160ms ease;
+    }
+    .adv:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(136,14,79,0.15);
+    }
+    .adv strong {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      color: #FFD700;
+    }
+    .adv p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+      margin: 0;
+    }
+    .testimonials {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+      gap: 20px;
+      width: 100%;
+    }
+    .test {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 25px 32px;
+      gap: 10.52px;
+      width: 672px;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.05) 0%, rgba(136, 14, 79, 0.03) 100%);
+      border: 1px solid rgba(255, 215, 0, 0.08);
+      border-radius: 10px;
+      transition: transform 160ms ease;
+    }
+    .test:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(136,14,79,0.15);
+    }
+    .test strong {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 29px;
+      color: #FFD700;
+    }
+    .test p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+      margin: 0;
+    }
+    .footer {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 41px 280px 40px;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .footer .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+      gap: 34px;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .footer .cols {
+      display: flex;
+      gap: 34px;
+    }
+    .footer .cols > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 15px;
+      width: 639px;
+    }
+    .footer .cols > div:first-child > div:first-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 0 0 24px;
+      gap: 12px;
+      width: 100%;
+    }
+    .footer .cols > div:first-child > div:first-child > div:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 0 0 24px;
+    }
+    .footer .cols > div:first-child > div:first-child > div:last-child > div:first-child {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 38px;
+      color: #ECECEC;
+    }
+    .footer .cols > div:first-child > div:first-child > div:last-child > div:last-child {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+    }
+    .footer .cols > div:first-child > div:last-child {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 34px;
+      color: #BDBDBD;
+      padding: 0 0 0.84px;
+    }
+    .footer .cols > div:nth-child(2), .footer .cols > div:nth-child(3) {
+      width: 320px;
+      position: relative;
+    }
+    .footer a {
+      color: #cfcfcf;
+      text-decoration: none;
+      font-size: 20px;
+      line-height: 26px;
+      transition: color 160ms ease;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .footer a:hover {
+      color: var(--gold);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      animation: modal-fade-in 240ms ease;
+    }
+    .modal[style*="display: flex"], .modal[style*="display:flex"] {
+      display: flex !important;
+    }
+    @keyframes modal-fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .modal-inner {
+      background: #0c0c0c;
+      padding: 28px;
+      border-radius: 12px;
+      width: 520px;
+      max-width: 94%;
+      position: relative;
+      animation: modal-slide-in 280ms ease;
+      border: 1px solid rgba(255,215,0,0.08);
+    }
+    @keyframes modal-slide-in {
+      from {
+        transform: translateY(20px) scale(0.96);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+    .modal .close {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      background: transparent;
+      border: none;
+      color: #ccc;
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 160ms ease, color 160ms ease;
+    }
+    .modal .close:hover {
+      color: var(--gold);
+      transform: rotate(90deg);
+    }
+    .modal-title {
+      color: var(--gold);
+      margin-top: 0;
+    }
+    .form {
+      background: #0e0e0e;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .form label {
+      display: block;
+      font-size: 20px;
+      color: #cfcfcf;
+      margin: 12px 0 6px;
+      font-weight: 500;
+    }
+    .form input, .form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.05);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 20px;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .form input:focus, .form textarea:focus {
+      outline: none;
+      border-color: rgba(255,215,0,0.3);
+      box-shadow: 0 0 0 3px rgba(255,215,0,0.08);
+    }
+    .form input:hover, .form textarea:hover {
+      border-color: rgba(255,255,255,0.1);
+    }
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+    @media (max-width: 1400px) {
+      .header {
+        padding: 0 40px 1px;
+      }
+      .footer {
+        padding: 41px 40px 40px;
+      }
+    }
+    @media (max-width: 880px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-grid > div:first-child, .aside {
+        width: 100%;
+      }
+      .footer .cols {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer .cols > div {
+        width: 100% !important;
+      }
+      .menu {
+        display: none;
+      }
+      .advantages, .testimonials {
+        flex-direction: column;
+      }
+      .adv, .test {
+        width: 100%;
+      }
+    }
+    .btn {
+      text-decoration: none;
+    }
+    .hero-grid .btn {
+      text-decoration: underline;
+    }
+    .card .btn.primary {
+      text-decoration: underline;
+    }
+    .card button.btn.primary[data-buy] {
+      text-decoration: none;
+    }
+    .header-subtitle {
+      font-size: 20px;
+      color: var(--silver);
+    }
+    .nav-link.active {
+      color: #FFD700;
+      background: rgba(255, 215, 0, 0.05);
+    }
+    .brand-link {
+      max-width: 310px;
+      flex-shrink: 1;
+    }
+    .header-subtitle {
+      font-size: 14px !important;
+      line-height: 1.3 !important;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+    header.header .container, header.header .container-main {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading">
+    <div class="text-center">
+      <div class="brand-logo d-inline-flex">T&L</div>
+      <div class="text-alto mt-3" style="font-size: 20px;">Загрузка...</div>
+    </div>
+  </div>
+  <div class="figma-frame">
+    <header class="header sticky-top">
+      <div class="container-main d-flex justify-content-between align-items-center py-3">
+        <a href="index.html" class="brand-link d-flex align-items-center gap-3 text-decoration-none">
+          <div class="brand-logo">T&L</div>
+          <div>
+            <div class="fw-bold text-light">Трансформаторы и Лампы</div>
+            <div class="header-subtitle">
+              <span class="desktop-subtitle">Производство профессионального аудиооборудования</span>
+            </div>
+          </div>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          ☰ Меню
+        </button>
+        <nav class="d-none d-lg-flex gap-3 desktop-nav">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="catalog.html" class="nav-link">Каталог</a>
+          <a href="projects.html" class="nav-link">Проекты</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </nav>
+        <a href="catalog.html" class="btn-custom btn-primary-custom desktop-cta">
+          Смотреть каталог
+        </a>
+        <nav class="mobile-nav" id="mobileNav" style="display: none;">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="catalog.html" class="nav-link">Каталог</a>
+          <a href="projects.html" class="nav-link">Проекты</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="hero" class="hero" data-component="Section/Hero">
+        <div class="hero-grid">
+          <div data-component="Hero/Lead">
+            <h1>Тепло ламп. Сила трансформаторов. Звук, который вдохновляет.</h1>
+            <p class="lead">Разработка и изготовление лампового и современного аудиооборудования: микрофоны, компрессоры, эквалайзеры, усилители, студийные мониторы, синтезаторы и MIDI-управляемые трансформаторы Тесла.</p>
+            <div class="categories" data-component="List/Categories">
+              <div class="category" data-component="Category/Item">
+                <strong>Ламповое</strong>
+                <div class="small">Микрофоны, компрессоры, эквалайзеры</div>
+              </div>
+              <div class="category" data-component="Category/Item">
+                <strong>Цифровое</strong>
+                <div class="small">Мониторы, ПО, эмуляторы</div>
+              </div>
+              <div class="category" data-component="Category/Item">
+                <strong>Инструменты</strong>
+                <div class="small">Синтезаторы, усилители, Tesla coils</div>
+              </div>
+            </div>
+            <div>
+              <a class="btn primary" href="catalog.html" data-component="Button/Primary">Посмотреть каталог</a>
+              <a class="btn ghost" href="projects.html" data-component="Button/Ghost">Смотреть проекты</a>
+            </div>
+          </div>
+          <aside class="aside" data-component="Aside/Popular">
+            <h3>Популярные продукты</h3>
+            <div>
+              <div class="card" data-component="Card/Product" data-variant="list">
+                <div>
+                  <img src="images/tube_mic.jpg" alt="mic">
+                  <div>
+                    <strong>Ламповый микрофон</strong>
+                    <div class="small">Тёплый винтажный тон</div>
+                    <div style="margin-top:8px;">
+                      <button class="btn primary" data-component="Button/Primary" data-buy="Ламповый микрофон">Купить</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" data-component="Card/Product" data-variant="list">
+                <div>
+                  <img src="images/amp.jpg" alt="amp">
+                  <div>
+                    <strong>Гитарная голова</strong>
+                    <div class="small">Ламповый драйв</div>
+                    <div style="margin-top:8px;">
+                      <a class="btn primary" href="product.html?product=lm1">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section id="advantages" class="section" data-component="Section/Advantages">
+        <h2>Наши преимущества</h2>
+        <div class="advantages">
+          <div class="adv" data-component="Advantage/Item">
+            <strong>Ручная сборка</strong>
+            <p>Каждый прибор собирается и тестируется вручную опытными инженерами.</p>
+          </div>
+          <div class="adv" data-component="Advantage/Item">
+            <strong>Кастомизация</strong>
+            <p>Индивидуальные настройки под ваш звук и задачи студии.</p>
+          </div>
+          <div class="adv" data-component="Advantage/Item">
+            <strong>Поддержка</strong>
+            <p>Сервис и гарантия на оборудование — до 5 лет.</p>
+          </div>
+        </div>
+      </section>
+      <section id="testimonials" class="section" data-component="Section/Testimonials">
+        <h2>Отзывы клиентов</h2>
+        <div class="testimonials">
+          <div class="test" data-component="Testimonial/Item">
+            <strong>Студия «Альфа»</strong>
+            <p>«Микрофоны и компрессоры от Трансформаторы и Лампы дали нашим записям тёплый и живой характер»</p>
+          </div>
+          <div class="test" data-component="Testimonial/Item">
+            <strong>Музыкант — Иван</strong>
+            <p>«Гитарная голова прекрасно держит динамику и не теряет тело при высоких уровнях»</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" data-component="Footer/Main">
+      <div class="container">
+        <div class="cols">
+          <div>
+            <div>
+              <div class="logo">T&L</div>
+              <div>
+                <div>Трансформаторы и Лампы</div>
+                <div>Профессиональное аудиооборудование</div>
+              </div>
+            </div>
+            <div>&#169; 2025 Все права защищены</div>
+          </div>
+          <div>
+            <div style="font-weight:600; margin-bottom:12px; color:#BDBDBD;">Меню</div>
+            <a href="catalog.html">Каталог</a>
+            <a href="projects.html">Проекты</a>
+            <a href="about.html">О компании</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+          <div>
+            <div style="font-weight:600; margin-bottom:12px; color:#BDBDBD;">Контакты</div>
+            <div style="font-size:20px; line-height:34px; color:#BDBDBD;">email: info@translamps.example</div>
+            <div style="font-size:20px; line-height:34px; color:#BDBDBD;">тел: +7 (900) 000-00-00</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="modal-buy" class="modal" data-component="Modal/Buy">
+      <div class="modal-inner">
+        <button class="close" aria-label="Закрыть окно">&times;</button>
+        <h2 class="modal-title">Оформление заказа</h2>
+        <form class="form" id="buy-form">
+          <label for="product">Продукт</label>
+          <input type="text" id="product" name="product" readonly>
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" placeholder="Введите имя" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Введите email" required>
+          <label for="message">Комментарий</label>
+          <textarea id="message" name="message" rows="4" placeholder="Комментарий (необязательно)"></textarea>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var userActions = [];
+      $(document).on('click', function(e) {
+        var target = $(e.target);
+        var data = {
+          timestamp: new Date().toISOString(),
+          tag: target.prop('tagName'),
+          className: target.attr('class') || '',
+          id: target.attr('id') || '',
+          href: target.attr('href') || ''
+        };
+        userActions.push(data);
+        if (userActions.length > 100) {
+          userActions.shift();
+        }
+        localStorage.setItem('tl_analytics', JSON.stringify(userActions));
+      });
+      var startTime = new Date();
+      $(window).on('beforeunload', function() {
+        var timeSpent = new Date() - startTime;
+        console.log('Время на странице: ' + Math.round(timeSpent/1000) + ' сек');
+      });
+    });
+  </script>
+</body>
+</html>

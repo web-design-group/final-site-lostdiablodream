@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Контакты — Трансформаторы и Лампы</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-size: 20px;
+    }
+    .contact-info h3 {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .contact-info h3:first-child {
+      margin-top: 0;
+    }
+    .contact-info p {
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+    .contact-card {
+      height: 100%;
+      border-radius: 10px;
+      background: #0E0E0E;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+    .contact-card h3 {
+      color: var(--text);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    .map-placeholder {
+      height: 270px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F0F0F;
+    }
+    p, li, a, button, input, textarea, label, h4, h5 {
+      font-size: 20px !important;
+      line-height: 34px;
+    }
+    .form-control, .form-select {
+      font-size: 20px !important;
+      padding: 12px;
+    }
+    .footer {
+      border-top: 1px solid #FFFFFF;
+    }
+    @media (max-width: 768px) {
+      .map-placeholder {
+        height: 200px;
+      }
+    }
+    .form-custom label {
+      text-align: left !important;
+      display: block;
+      width: 100%;
+    }
+    .form-custom .form-control, .form-custom textarea {
+      text-align: left !important;
+    }
+    @media (max-width: 768px) {
+      .contact-card {
+        text-align: left;
+      }
+      .contact-card h2 {
+        text-align: left;
+      }
+      .form-custom .text-end {
+        text-align: left !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading">
+    <div class="text-center">
+      <div class="brand-logo d-inline-flex">T&L</div>
+      <div class="text-alto mt-3" style="font-size: 20px;">Загрузка...</div>
+    </div>
+  </div>
+  <header class="header sticky-top">
+    <div class="container-main d-flex justify-content-between align-items-center py-3">
+      <a href="index.html" class="brand-link d-flex align-items-center gap-3 text-decoration-none">
+        <div class="brand-logo">T&L</div>
+        <div>
+          <div class="fw-bold text-light">Трансформаторы и Лампы</div>
+          <div class="header-subtitle">
+            <span class="desktop-subtitle">Контакты</span>
+          </div>
+        </div>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+        ☰ Меню
+      </button>
+      <nav class="d-none d-lg-flex gap-3 desktop-nav">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="projects.html" class="nav-link">Проекты</a>
+        <a href="about.html" class="nav-link">О компании</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <a href="contacts.html#contact-form" class="btn-custom btn-primary-custom desktop-cta">
+        Связаться
+      </a>
+      <nav class="mobile-nav" id="mobileNav" style="display: none;">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="projects.html" class="nav-link">Проекты</a>
+        <a href="about.html" class="nav-link">О компании</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+  <main class="py-5">
+    <div class="container-main py-5">
+      <section class="mb-5">
+        <h1 class="page-title">Контакты</h1>
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <div class="contact-info mb-4">
+              <h3 class="section-title">Адрес и связь</h3>
+              <p>г. Москва, ул. Примерная, д. 1</p>
+              <p>Тел: +7 (900) 000-00-00</p>
+              <p>E-mail: info@translamps.example</p>
+              <h3 class="subsection-title">Карта</h3>
+            </div>
+            <div class="map-placeholder p-0 overflow-hidden">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1333.8814324592329!2d30.313306081420652!3d59.939382746173585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310b32cbe2e9%3A0x74e032aa0505dfc!2z0JPQvtGB0YPQtNCw0YDRgdGC0LLQtdC90L3Ri9C5INCt0YDQvNC40YLQsNC2!5e0!3m2!1sru!2sru!4v1765722129341!5m2!1sru!2sru" width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="contact-card shadow-gold rounded-3">
+              <div class="p-4 border-bottom border-white-light">
+                <h2 class="section-title">Связаться с нами</h2>
+              </div>
+              <form id="contact-form" class="p-4 form-custom">
+                <div class="mb-3">
+                  <label class="form-label text-alto">Имя *</label>
+                  <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-alto">E-mail *</label>
+                  <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label text-alto">Сообщение</label>
+                  <textarea class="form-control" name="message" rows="4"></textarea>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn-custom btn-primary-custom">
+                    Отправить
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container-main">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <p class="text-silver mb-0" style="font-size: 20px;">&#169; 2025 Трансформаторы и Лампы</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var userActions = [];
+      $(document).on('click', function(e) {
+        var target = $(e.target);
+        var data = {
+          timestamp: new Date().toISOString(),
+          tag: target.prop('tagName'),
+          className: target.attr('class') || '',
+          id: target.attr('id') || '',
+          href: target.attr('href') || ''
+        };
+        userActions.push(data);
+        if (userActions.length > 100) {
+          userActions.shift();
+        }
+        localStorage.setItem('tl_analytics', JSON.stringify(userActions));
+      });
+      var startTime = new Date();
+      $(window).on('beforeunload', function() {
+        var timeSpent = new Date() - startTime;
+        console.log('Время на странице: ' + Math.round(timeSpent/1000) + ' сек');
+      });
+    });
+  </script>
+</body>
+</html>

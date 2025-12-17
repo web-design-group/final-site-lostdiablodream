@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>О компании — Трансформаторы и Лампы</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    h1, .heading-1 {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 700;
+    }
+    h1.block-title, .heading-block {
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 700;
+    }
+    h2, .heading-2 {
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 700;
+    }
+    h4, .heading-4 {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 600;
+    }
+    p, a, li {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      height: 100%;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+      border-color: rgba(255,215,0,0.15);
+    }
+    .team-card .image-wrap {
+      padding: 16px;
+    }
+    .team-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .team-card .card-body {
+      padding: 16px 20px 24px;
+    }
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    .footer p {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    section.py-5 {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+    h1, h2, h1.block-title {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1.5rem;
+    }
+    h1.block-title {
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+    section.py-5 p {
+      margin-bottom: 1rem !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading">
+    <div class="text-center">
+      <div class="brand-logo d-inline-flex">T&L</div>
+      <div class="text-alto mt-3" style="font-size: 20px;">Загрузка...</div>
+    </div>
+  </div>
+  <header class="header sticky-top">
+    <div class="container-main d-flex justify-content-between align-items-center py-3">
+      <a href="index.html" class="brand-link d-flex align-items-center gap-3 text-decoration-none">
+        <div class="brand-logo">T&L</div>
+        <div>
+          <div class="fw-bold text-light">Трансформаторы и Лампы</div>
+          <div class="header-subtitle">
+            <span class="desktop-subtitle">О компании</span>
+          </div>
+        </div>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+        ☰ Меню
+      </button>
+      <nav class="d-none d-lg-flex gap-3 desktop-nav">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="projects.html" class="nav-link">Проекты</a>
+        <a href="about.html" class="nav-link">О компании</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <a href="contacts.html" class="btn-custom btn-primary-custom desktop-cta">
+        Связаться
+      </a>
+      <nav class="mobile-nav" id="mobileNav" style="display: none;">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="projects.html" class="nav-link">Проекты</a>
+        <a href="about.html" class="nav-link">О компании</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="py-5">
+      <div class="container-main">
+        <h1 class="page-title">Наша история</h1>
+        <p class="mb-4">
+          «Трансформаторы и Лампы» — мастерская инженеров и звуколюбов. Мы соединяем традиции лампового звучания с современными технологиями, включая цифровое управление и MIDI-интеграцию для экспериментальных проектов.
+        </p>
+        <h2 class="section-title">Философия бренда</h2>
+        <p>
+          Мы верим, что тёплый характер ламп и точность цифровых решений могут существовать вместе, давая инженеру и музыканту максимум контроля и эмоциональной выразительности.
+        </p>
+      </div>
+    </section>
+    <section class="py-5">
+      <div class="container-main">
+        <h2 class="section-title">Наша команда</h2>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="team-card">
+              <div class="image-wrap">
+                <img src="images/about1.jpg" alt="Иван П.">
+              </div>
+              <div class="card-body">
+                <h3 class="subsection-title">Иван П.</h3>
+                <p class="mb-0">Главный инженер, разработка ламповых схем.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="team-card">
+              <div class="image-wrap">
+                <img src="images/about2.jpg" alt="Мария Л.">
+              </div>
+              <div class="card-body">
+                <h3 class="subsection-title">Мария Л.</h3>
+                <p class="mb-0">DSP и ПО для сенсорных интерфейсов.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5">
+      <div class="container-main">
+        <h2 class="section-title">Производственный процесс</h2>
+        <p>
+          Проектирование → прототип → тестирование → ручная сборка → контроль качества → отправка. Для Tesla-инсталляций дополнительно: протоколы безопасности и дистанционное MIDI-управление.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container-main">
+      <p class="text-silver mb-0">&#169; 2025 Трансформаторы и Лампы</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var userActions = [];
+      $(document).on('click', function(e) {
+        var target = $(e.target);
+        var data = {
+          timestamp: new Date().toISOString(),
+          tag: target.prop('tagName'),
+          className: target.attr('class') || '',
+          id: target.attr('id') || '',
+          href: target.attr('href') || ''
+        };
+        userActions.push(data);
+        if (userActions.length > 100) {
+          userActions.shift();
+        }
+        localStorage.setItem('tl_analytics', JSON.stringify(userActions));
+      });
+      var startTime = new Date();
+      $(window).on('beforeunload', function() {
+        var timeSpent = new Date() - startTime;
+        console.log('Время на странице: ' + Math.round(timeSpent/1000) + ' сек');
+      });
+    });
+  </script>
+</body>
+</html>
